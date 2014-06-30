@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<featuredproducts_index_index>
+		<reference name="root">
+			<action method="setTemplate">
+				<template>page/2columns-right.phtml</template>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="featuredproducts/featuredproducts" name="featuredproducts.featuredproducts" template="featuredproducts/featuredproducts.phtml" productCount="2"/>
+		</reference>
+		
+	</featuredproducts_index_index>
+
+	<default>
+		<reference name="right">
+            <block type="featuredproducts/product_list_sidebar" name="featuredproducts.list.sidebar" before="-" >
+            	<action method="setTemplate" ifconfig="featured_products/sidebar/enabled">
+					<template>featuredproducts/list/sidebar.phtml</template>
+				</action>
+            </block>
+        </reference>
+	</default>
+
+	<cms_index_index>
+		<reference name="content">
+			<block type="featuredproducts/product_list_homepage" name="featuredproducts.list.homepage">
+				<action method="setTemplate" ifconfig="featured_products/homepage/enabled">
+					<template>featuredproducts/list/homepage.phtml</template>
+				</action>
+			</block>
+		</reference>
+	</cms_index_index>
+
+	<catalog_category_layered>
+		<reference name="content">
+			<block type="featuredproducts/product_list_categorypage" before="product_list" name="featuredproducts.list.categorypage">
+				<action method="setTemplate" ifconfig="featured_products/categorypage/enabled">
+					<template>featuredproducts/list/categorypage.phtml</template>
+				</action>
+			</block>
+		</reference>
+	</catalog_category_layered>
+
+	<catalog_category_default>
+		<reference name="content">
+			<block type="featuredproducts/product_list_categorypage" before="product_list" name="featuredproducts.list.categorypage">
+				<action method="setTemplate" ifconfig="featured_products/categorypage/enabled">
+					<template>featuredproducts/list/categorypage.phtml</template>
+				</action>
+			</block>
+		</reference>
+	</catalog_category_default>
+</layout> 

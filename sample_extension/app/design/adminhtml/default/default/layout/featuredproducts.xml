@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_featuredproductsadmin_index>
+		<reference name="content">
+			<block type="featuredproducts/adminhtml_grid" name="featuredproducts.adminhtml.grid" ></block>	
+		</reference>
+	</adminhtml_featuredproductsadmin_index>
+</layout>

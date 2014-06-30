@@ -1,0 +1,132 @@
+<?xml version="1.0" ?>
+
+<config>
+	<modules>
+		<Magebuzz_Featuredproducts>
+			<version>0.1.0</version>
+		</Magebuzz_Featuredproducts>
+	</modules>
+
+	<global>
+		<models>
+			<featuredproducts>
+				<class>Magebuzz_Featuredproducts_Model</class>
+			</featuredproducts>
+		</models>
+
+		<resources>
+			<featuredproducts_setup>
+				<setup>
+					<module>Magebuzz_Featuredproducts</module>
+					<class>Magebuzz_Featuredproducts_Model_Resource_Eav_Mysql4_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</featuredproducts_setup>
+
+			<featuredproducts_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</featuredproducts_write>
+
+			<featuredproducts_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</featuredproducts_read>			
+		</resources>
+
+		<blocks>
+			<featuredproducts>
+				<class>Magebuzz_Featuredproducts_Block</class>
+			</featuredproducts>
+		</blocks>
+
+		<helpers>
+			<featuredproducts>
+				<class>Magebuzz_Featuredproducts_Helper</class>
+			</featuredproducts>
+		</helpers>
+	</global>
+
+	<frontend>
+		<translate>
+        <modules>
+            <Magebuzz_Featuredproducts>
+                <files>
+                    <default>Magebuzz_Featuredproducts.csv</default>
+                </files>
+            </Magebuzz_Featuredproducts>
+        </modules>
+    </translate>
+		<routers>
+			<featuredproducts>
+				<use>standard</use>
+				<args>
+					<module>Magebuzz_Featuredproducts</module>
+					<frontName>featuredproducts</frontName>
+				</args>
+			</featuredproducts>
+		</routers>
+
+		<layout>
+			<updates>
+				<featuredproducts>
+					<file>featuredproducts.xml</file>
+				</featuredproducts>
+			</updates>
+		</layout>
+    </frontend>
+
+    <admin>	
+        <routers>
+            <adminhtml>
+                <args>
+                    <use>standard</use>
+                    <modules>
+                        <Magebuzz_Featuredproducts after="Mage_Adminhtml">Magebuzz_Featuredproducts</Magebuzz_Featuredproducts>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+    <adminhtml>
+    	<translate>
+            <modules>
+                <Magebuzz_Featuredproducts>
+                    <files>
+                        <default>Magebuzz_Featuredproducts.csv</default>
+                    </files>
+                </Magebuzz_Featuredproducts>
+            </modules>
+        </translate>
+	    <layout>
+	    	<updates>
+	    		<featuredproducts>
+	    			<file>featuredproducts.xml</file>
+	    		</featuredproducts>
+	    	</updates>
+	    </layout>
+	</adminhtml>
+
+	<default>
+		<featured_products>
+			<homepage>
+				<number_products>4</number_products>
+				<enabled>1</enabled>
+			</homepage>
+			<categorypage>
+				<number_products>4</number_products>
+				<enabled>1</enabled>
+			</categorypage>
+			<sidebar>
+				<number_products>4</number_products>
+				<enabled>1</enabled>
+			</sidebar>
+		</featured_products>
+	</default>
+
+</config>

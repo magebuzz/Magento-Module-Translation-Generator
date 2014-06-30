@@ -1,0 +1,5 @@
+app/code/community/Magebuzz/Featuredproducts  app/code/community/Magebuzz/Featuredproducts
+app/design/adminhtml/default/default/layout/*  app/design/adminhtml/default/default/layout/
+app/design/frontend/default/default/layout/*  app/design/frontend/default/default/layout/
+app/design/frontend/default/default/template/featuredproducts/  app/design/frontend/default/default/template/featuredproducts/
+app/etc/modules/*  app/etc/modules/

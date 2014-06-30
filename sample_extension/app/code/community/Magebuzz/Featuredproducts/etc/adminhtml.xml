@@ -1,0 +1,48 @@
+<config>
+	<menu>
+		<catalog>
+			<children>
+				<featured_products translate="title">
+					<title>Featured Products</title>
+       					<sort_order>10</sort_order>					
+						<children>
+							<management translate="title">
+								<title>Manage Featured Products</title>
+								<sort_order>1</sort_order>
+								<action>adminhtml/featuredproductsadmin/index</action>
+							</management>
+							<configuration translate="title">
+								<title>Configuration</title>
+								<sort_order>2</sort_order>
+								<action>adminhtml/system_config/edit/section/featured_products</action>
+							</configuration>
+						</children>
+				</featured_products>
+			</children>
+		</catalog>
+	</menu>
+
+	<acl>
+		<resources>
+			<all>
+		    	<title>Allow Everything</title>
+			</all>
+			<admin>
+			    <children>
+					<system>
+						<children>
+							<config>
+								<children>
+									<featured_products translate="title">
+										<title>Featured Products Config</title>
+										<sort_order>100</sort_order>
+									</featured_products>
+								</children>
+							</config>
+						</children>
+					</system>
+			    </children>
+			</admin>
+		</resources>
+	</acl>
+</config>

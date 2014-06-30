@@ -1,0 +1,29 @@
+<?php
+/*
+* Copyright (c) 2013 www.magebuzz.com 
+*/
+?>
+<?php if($this->getLoadedProductCollection()->getSize()): ?>
+<div class="block block-related">
+    <div class="block-title">
+        <strong><span><?php echo $this->__($this->getBlockTitle()); ?></span></strong>
+    </div>
+    <div class="block-content">
+        <ol class="mini-products-list" id="block-related">
+        <?php foreach($this->getLoadedProductCollection() as $_item): ?>
+            <li class="item">
+                <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(50) ?>" width="50" height="50" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+                <div class="product-details">
+                    <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>
+                    <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                    <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                        <a href="<?php echo $this->getAddToWishlistUrl($_item) ?>" class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a>
+                    <?php endif; ?>
+                </div>
+            </li>
+        <?php endforeach ?>
+        </ol>
+        <script type="text/javascript">decorateList('block-related', 'none-recursive')</script>
+    </div>
+</div>
+<?php endif ?>
