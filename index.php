@@ -1,5 +1,6 @@
-<h1>Tranlation Generator</h1>
+<h1>Translation Generator</h1>
 <form id="input_form" action="IndexController.php" method="get">
+Module Path: </br>
 <textarea rows="4" cols="50" name="path" form="input_form">sample_extension</textarea>
 </br>
 <input type="submit" value="Submit">
