@@ -55,7 +55,7 @@ class TranslationGenerator {
 	}
 
 	protected function _getFromPHTMLfiles() {
-		$directory = new RecursiveDirectoryIterator(dirname(__FILE__));
+		$directory = new RecursiveDirectoryIterator($this->extension_path);
 		$iterator = new RecursiveIteratorIterator($directory);
 		$regex = new RegexIterator($iterator, '/^.+\.phtml$/i', RecursiveRegexIterator::GET_MATCH);
 		$phtml_files = iterator_to_array($regex);
@@ -76,7 +76,7 @@ class TranslationGenerator {
 
 
 	protected function _getFromXMLfiles() {
-		$directory = new RecursiveDirectoryIterator(dirname(__FILE__));
+		$directory = new RecursiveDirectoryIterator($this->extension_path);
 		$iterator = new RecursiveIteratorIterator($directory);
 		$regex = new RegexIterator($iterator, '/^.+\.xml$/i', RecursiveRegexIterator::GET_MATCH);
 		$xml_files = iterator_to_array($regex);
