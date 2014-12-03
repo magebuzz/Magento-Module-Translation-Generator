@@ -1,4 +1,5 @@
 <?php
+ini_set('display_errors', 1);
 
 class TranslationGenerator {
 
@@ -25,7 +26,7 @@ class TranslationGenerator {
 	public function getTranslationHTMLcode() {
 		$string = '<p>';
 		foreach ($this->need_to_translate as $item) {
-			$string .= $item.','.$item."</br>";
+			$string .= '"'.$item.'","'.$item.'"'."</br>";
 		}
 		$string .= '</p>';
 		return $string;
@@ -47,7 +48,7 @@ class TranslationGenerator {
 			$file_content = file_get_contents($file_path);
 			$tokens = token_get_all($file_content);
 			foreach ($tokens as $key => $token) {
-				if (($token[0] == 307)&&($token[1]=='__')) {
+				if (($token[0] == 308)&&($token[1]=='__')) {
 					$this->need_to_translate[] = ($tokens[$key + 2][1]);
 				}
 			}
@@ -67,7 +68,7 @@ class TranslationGenerator {
 			$file_content = file_get_contents($file_path);
 			$tokens = token_get_all($file_content);
 			foreach ($tokens as $key => $token) {
-				if (($token[0] == 307)&&($token[1]=='__')) {
+				if (($token[0] == 308)&&($token[1]=='__')) {
 					$this->need_to_translate[] = ($tokens[$key + 2][1]);
 				}
 			}
@@ -97,6 +98,11 @@ class TranslationGenerator {
 	protected function _validate() {
 		$this->need_to_translate = array_unique($this->need_to_translate);
 		asort($this->need_to_translate);
+		/* remove quote and double quote */
+		foreach($this->need_to_translate as $key => $item) {
+      if ($item[0] == '"' && $item[strlen($item) -1] == '"') $this->need_to_translate[$key] = trim($item,'"');
+      if ($item[0] == "'" && $item[strlen($item) -1] == "'") $this->need_to_translate[$key] = trim($item,"'");
+    }
 	}
 }
 
